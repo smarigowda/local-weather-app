@@ -1,1 +1,15 @@
-<p>Current Weather !</p>
+<div class="container">
+  <div class="city-country">
+    <span>{{ current.city }}, {{ current.country }}, </span>
+    <span>{{ current.date | date:'fullDate' }}</span>
+  </div>
+  <div class="image">
+    <img [src]='current.image' alt="image of current weather">
+    <div class="text">
+      <span>{{ current.temperature | number:'1.0-0' }}<strong>&#8457;</strong> </span>
+    </div>
+  </div>
+  <div class="description">
+    {{ current.description }}
+  </div>
+</div>
