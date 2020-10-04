@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) {}
 }
