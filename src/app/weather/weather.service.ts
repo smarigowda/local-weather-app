@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 
 import { environment } from '../../environments/environment'
 
@@ -26,7 +26,11 @@ interface ICurrentWeatherData {
 export class WeatherService {
   constructor(private httpClient: HttpClient) {}
   getCurrentWeather(city: string, country: string) {
-    const url = `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${environment.appId}`
-    return this.httpClient.get<ICurrentWeatherData>(url)
+    const params = new HttpParams()
+      .set('q', `${city},${country}`)
+      .set('appid', `${environment.appId}`)
+
+    const url = `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`
+    return this.httpClient.get<ICurrentWeatherData>(url, { params })
   }
 }
