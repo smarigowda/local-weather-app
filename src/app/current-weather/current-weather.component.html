@@ -1,4 +1,8 @@
-<div class="container">
+<div class="container" *ngIf="!current">
+  no data
+</div>
+
+<div class="container" *ngIf="current">
   <div class="city-country">
     <span>{{ current.city }}, {{ current.country }}, </span>
     <span>{{ current.date | date:'fullDate' }}</span>
